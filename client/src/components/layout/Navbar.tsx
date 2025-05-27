@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Youtube,
   LucideUpload,
@@ -54,23 +54,19 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-6">
           {isAuthenticated ? (
             <>
-              <div className="text-gray-300">
-                <span className="mr-2">💸</span>
-                <span>₹{user?.balance || 0}</span>
-              </div>
-              <Link
-                to="/upload"
-                className="flex items-center space-x-1 text-gray-300 hover:text-white transition"
-              >
-                <LucideUpload size={18} />
-                <span>Upload</span>
-              </Link>
               <Link
                 to="/profile"
                 className="flex items-center space-x-1 text-gray-300 hover:text-white transition"
               >
                 <UserCircle size={18} />
                 <span>Profile</span>
+              </Link>
+              <Link
+                to="/upload"
+                className="flex items-center space-x-1 text-gray-300 hover:text-white transition"
+              >
+                <LucideUpload size={18} />
+                <span>Upload</span>
               </Link>
               <button
                 onClick={handleLogout}
@@ -79,6 +75,11 @@ const Navbar: React.FC = () => {
                 <LucideLogOut size={18} />
                 <span>Logout</span>
               </button>
+
+              <div className="text-gray-300">
+                <span className="mr-2">💸</span>
+                <span>₹{user?.balance || 0}</span>
+              </div>
             </>
           ) : (
             <>
